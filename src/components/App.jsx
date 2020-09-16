@@ -10,10 +10,15 @@ function App() {
 
   function handleChange(event){
     const {name,value} = event.target; // declare {} from event obj
-    setContact({
-      fName: ("fName" === name) ? value: contact.fName,
+    
+    setContact(prevValue=>{
+      return {
+      /* fName: ("fName" === name) ? value: contact.fName,
       lName: ("lName" === name) ? value: contact.lName,
-      email: ("email" === name) ? value: contact.email
+      email: ("email" === name) ? value: contact.email */
+        ...prevValue,
+        [name]:value
+      }
     });
 
   }
